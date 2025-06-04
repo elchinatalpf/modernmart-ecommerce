@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernMart - Professional E-commerce Wireframes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--gray-800);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .wireframe-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .wireframe-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .wireframe-header {
+            background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .wireframe-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .device-indicator {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .device-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .wireframe-content {
+            padding: 30px;
+            background: var(--gray-50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .mobile-frame {
+            width: 375px;
+            height: 812px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 0 0 10px var(--gray-900), var(--shadow-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mobile-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: var(--gray-900);
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: var(--gray-50);
+        }
+
+        /* Wireframe Elements */
+        .wf-header {
+            background: white;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        .wf-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .wf-nav-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .wf-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gray-300);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .wf-icon.cart::after {
+            content: '3';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .wf-search {
+            margin: 15px;
+            padding: 12px 20px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+
+        .wf-hero {
+            margin: 15px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wf-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .wf-section {
+            padding: 20px 15px;
+        }
+
+        .wf-section-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 15px;
+            color: var(--gray-800);
+        }
+
+        .wf-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .wf-category {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            transition: all 0.2s ease;
+        }
+
+        .wf-category:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .wf-products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .wf-product {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .wf-product:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+
+        .wf-product-image {
+            height: 150px;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.75rem;
+        }
+
+        .wf-product-info {
+            padding: 12px;
+        }
+
+        .wf-product-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+            color: var(--gray-800);
+        }
+
+        .wf-product-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .wf-bottom-nav {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .wf-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-500);
+            font-size: 0.75rem;
+        }
+
+        .wf-nav-item.active {
+            color: var(--primary);
+        }
+
+        .wf-nav-item .wf-icon {
+            background: currentColor;
+        }
+
+        /* Product Detail Specific */
+        .wf-carousel {
+            height: 300px;
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            position: relative;
+        }
+
+        .wf-carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .wf-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gray-400);
+        }
+
+        .wf-dot.active {
+            background: var(--primary);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .wf-options {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .wf-option {
+            padding: 8px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .wf-option.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .wf-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 20px 0;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .wf-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .wf-button.secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .wf-button.secondary:hover {
+            background: var(--gray-50);
+        }
+
+        /* Cart Specific */
+        .wf-cart-item {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .wf-cart-image {
+            width: 80px;
+            height: 80px;
+            background: var(--gray-200);
+            border-radius: var(--radius);
+            flex-shrink: 0;
+        }
+
+        .wf-cart-details {
+            flex: 1;
+        }
+
+        .wf-quantity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .wf-qty-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .wf-qty-btn:hover {
+            background: var(--gray-100);
+        }
+
+        /* Checkout Specific */
+        .wf-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .wf-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .wf-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .wf-progress::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray-300);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .wf-step {
+            background: white;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .wf-step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: white;
+        }
+
+        .wf-step.active .wf-step-circle {
+            background: var(--primary);
+        }
+
+        .wf-step.completed .wf-step-circle {
+            background: var(--success);
+        }
+
+        .wf-step-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .wireframe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading-placeholder {
+            background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ModernMart Wireframes</h1>
+            <p>Professional E-commerce Platform Design System</p>
+        </div>
+
+        <div class="wireframe-grid">
+            <!-- Homepage Wireframe -->
+            <div class="wireframe-container">
+                <div class="wireframe-header">
+                    <h2 class="wireframe-title">Homepage</h2>
+                    <div class="device-indicator">
+                        <span class="device-badge">Mobile First</span>
+                        <span class="device-badge">375px</span>
+                    </div>
+                </div>
+                <div class="wireframe-content">
+                    <div class="mobile-frame">
+                        <div class="mobile-notch"></div>
+                        <div class="mobile-screen">
+                            <!-- Header -->
+                            <div class="wf-header">
+                                <div class="wf-logo">ModernMart</div>
+                                <div class="wf-nav-icons">
+                                    <div class="wf-icon"></div>
+                                    <div class="wf-icon cart"></div>
+                                    <div class="wf-icon"></div>
+                                </div>
+                            </div>
+
+                            <!-- Search -->
+                            <div class="wf-search">Search for products...</div>
+
+                            <!-- Hero -->
+                            <div class="wf-hero">
+                                <span style="z-index: 1;">Summer Sale - Up to 50% Off</span>
+                            </div>
+
+                            <!-- Categories -->
+                            <div class="wf-section">
+                                <h3 class="wf-section-title">Shop by Category</h3>
+                                <div class="wf-categories">
+                                    <div class="wf-category">Electronics</div>
+                                    <div class="wf-category">Clothing</div>
+                                    <div class="wf-category">Home</div>
+                                    <div class="wf-category">Beauty</div>
+                                    <div class="wf-category">Sports</div>
+                                    <div class="wf-category">Books</div>
+                                </div>
+                            </div>
+
+                            <!-- Featured Products -->
+                            <div class="wf-section">
+                                <h3 class="wf-section-title">Featured Products</h3>
+                                <div class="wf-products">
+                                    <div class="wf-product">
+                                        <div class="wf-product-image">Image</div>
+                                        <div class="wf-product-info">
+                                            <div class="wf-product-name">Wireless Headphones</div>
+                                            <div class="wf-product-price">$79.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="wf-product">
+                                        <div class="wf-product-image">Image</div>
+                                        <div class="wf-product-info">
+                                            <div class="wf-product-name">Smart Watch</div>
+                                            <div class="wf-product-price">$249.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="wf-product">
+                                        <div class="wf-product-image">Image</div>
+                                        <div class="wf-product-info">
+                                            <div class="wf-product-name">Laptop Stand</div>
+                                            <div class="wf-product-price">$39.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="wf-product">
+                                        <div class="wf-product-image">Image</div>
+                                        <div class="wf-product-info">
+                                            <div class="wf-product-name">USB-C Hub</div>
+                                            <div class="wf-product-price">$29.99</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Navigation -->
+                            <div class="wf-bottom-nav">
+                                <div class="wf-nav-item active">
+                                    <div class="wf-icon"></div>
+                                    <span>Home</span>
+                                </div>
+                                <div class="wf-nav-item">
+                                    <div class="wf-icon"></div>
+                                    <span>Search</span>
+                                </div>
+                                <div class="wf-nav-item">
+                                    <div class="wf-icon"></div>
+                                    <span>Orders</span>
+                                </div>
+                                <div class="wf-nav-item">
+                                    <div class="wf-icon"></div>
+                                    <span>Profile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Detail Wireframe -->
+            <div class="wireframe-container">
+                <div class="wireframe-header">
+                    <h2 class="wireframe-title">Product Detail</h2>
+                    <div class="device-indicator">
+                        <span class="device-badge">Interactive</span>
+                        <span class="device-badge">375px</span>
+                    </div>
+                </div>
+                <div class="wireframe-content">
+                    <div class="mobile-frame">
+                        <div class="mobile-notch"></div>
+                        <div class="mobile-screen">
+                            <!-- Header -->
+                            <div class="wf-header">
+                                <div class="wf-icon"></div>
+                                <div class="wf-logo">Product Detail</div>
+                                <div class="wf-nav-icons">
+                                    <div class="wf-icon"></div>
+                                    <div class="wf-icon cart"></div>
+                                </div>
+                            </div>
+
+                            <!-- Product Carousel -->
+                            <div class="wf-carousel">
+                                <span>Product Image Gallery</span>
+                                <div class="wf-carousel-dots">
+                                    <div class="wf-dot active"></div>
+                                    <div class="wf-dot"></div>
+                                    <div class="wf-dot"></div>
+                                    <div class="wf-dot"></div>
+                                </div>
+                            </div>
+
+                            <!-- Product Info -->
+                            <div class="wf-section">
+                                <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Premium Wireless Headphones</h2>
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px;">
+                                    <div>
+                                        <span style="font-size: 1.75rem; font-weight: 700; color: var(--primary);">$79.99</span>
+                                        <span style="font-size: 1rem; color: var(--gray-400); text-decoration: line-through; margin-left: 10px;">$129.99</span>
+                                    </div>
+                                    <span style="background: var(--danger); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">-38% OFF</span>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                                    <div style="display: flex; gap: 2px;">
+                                        <span style="color: var(--warning);">★★★★★</span>
+                                    </div>
+                                    <span style="color: var(--gray-600); font-size: 0.875rem;">4.8 (2,345 reviews)</span>
+                                </div>
+
+                                <!-- Options -->
+                                <div style="margin-bottom: 20px;">
+                                    <h4 style="font-size: 0.875rem; margin-bottom: 10px; color: var(--gray-700);">Color</h4>
+                                    <div class="wf-options">
+                                        <div class="wf-option selected">Black</div>
+                                        <div class="wf-option">White</div>
+                                        <div class="wf-option">Blue</div>
+                                    </div>
+                                </div>
+
+                                <!-- Description -->
+                                <div style="margin-bottom: 20px;">
+                                    <h4 style="font-size: 0.875rem; margin-bottom: 10px; color: var(--gray-700);">Description</h4>
+                                    <p style="font-size: 0.875rem; line-height: 1.6; color: var(--gray-600);">
+                                        Experience premium audio quality with our wireless headphones. Features include active noise cancellation, 30-hour battery life, and comfortable over-ear design perfect for long listening sessions.
+                                    </p>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <button class="wf-button">Add to Cart</button>
+                                <button class="wf-button secondary">Add to Wishlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping Cart Wireframe -->
+            <div class="wireframe-container">
+                <div class="wireframe-header">
+                    <h2 class="wireframe-title">Shopping Cart</h2>
+                    <div class="device-indicator">
+                        <span class="device-badge">Interactive</span>
+                        <span class="device-badge">375px</span>
+                    </div>
+                </div>
+                <div class="wireframe-content">
+                    <div class="mobile-frame">
+                        <div class="mobile-notch"></div>
+                        <div class="mobile-screen">
+                            <!-- Header -->
+                            <div class="wf-header">
+                                <div class="wf-icon"></div>
+                                <div class="wf-logo">Shopping Cart (3)</div>
+                                <div class="wf-nav-icons">
+                                    <div class="wf-icon"></div>
+                                </div>
+                            </div>
+
+                            <div class="wf-section">
+                                <!-- Cart Items -->
+                                <div class="wf-cart-item">
+                                    <div class="wf-cart-image"></div>
+                                    <div class="wf-cart-details">
+                                        <h4 style="font-size: 0.875rem; margin-bottom: 5px;">Wireless Headphones</h4>
+                                        <p style="font-size: 0.75rem; color: var(--gray-500); margin-bottom: 5px;">Color: Black</p>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-weight: 600; color: var(--primary);">$79.99</span>
+                                            <div class="wf-quantity">
+                                                <div class="wf-qty-btn">-</div>
+                                                <span>1</span>
+                                                <div class="wf-qty-btn">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="wf-cart-item">
+                                    <div class="wf-cart-image"></div>
+                                    <div class="wf-cart-details">
+                                        <h4 style="font-size: 0.875rem; margin-bottom: 5px;">Smart Watch</h4>
+                                        <p style="font-size: 0.75rem; color: var(--gray-500); margin-bottom: 5px;">Color: Silver</p>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-weight: 600; color: var(--primary);">$249.99</span>
+                                            <div class="wf-quantity">
+                                                <div class="wf-qty-btn">-</div>
+                                                <span>1</span>
+                                                <div class="wf-qty-btn">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="wf-cart-item">
+                                    <div class="wf-cart-image"></div>
+                                    <div class="wf-cart-details">
+                                        <h4 style="font-size: 0.875rem; margin-bottom: 5px;">Laptop Stand</h4>
+                                        <p style="font-size: 0.75rem; color: var(--gray-500); margin-bottom: 5px;">Color: Gray</p>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span style="font-weight: 600; color: var(--primary);">$39.99</span>
+                                            <div class="wf-quantity">
+                                                <div class="wf-qty-btn">-</div>
+                                                <span>2</span>
+                                                <div class="wf-qty-btn">+</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Promo Code -->
+                                <div style="display: flex; gap: 10px; margin: 20px 0;">
+                                    <input class="wf-input" style="flex: 1; margin: 0;" placeholder="Enter promo code">
+                                    <button class="wf-button" style="width: auto; padding: 12px 24px; margin: 0;">Apply</button>
+                                </div>
+
+                                <!-- Order Summary -->
+                                <div style="background: white; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 20px; margin: 20px 0;">
+                                    <h3 style="font-size: 1rem; margin-bottom: 15px;">Order Summary</h3>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                        <span style="color: var(--gray-600);">Subtotal</span>
+                                        <span>$409.96</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                        <span style="color: var(--gray-600);">Shipping</span>
+                                        <span>$10.00</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                        <span style="color: var(--gray-600);">Tax</span>
+                                        <span>$35.85</span>
+                                    </div>
+                                    <hr style="border: none; border-top: 1px solid var(--gray-200); margin: 15px 0;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span style="font-weight: 600; font-size: 1.125rem;">Total</span>
+                                        <span style="font-weight: 600; font-size: 1.125rem; color: var(--primary);">$455.81</span>
+                                    </div>
+                                </div>
+
+                                <button class="wf-button">Proceed to Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Wireframe -->
+            <div class="wireframe-container">
+                <div class="wireframe-header">
+                    <h2 class="wireframe-title">Checkout</h2>
+                    <div class="device-indicator">
+                        <span class="device-badge">Secure</span>
+                        <span class="device-badge">375px</span>
+                    </div>
+                </div>
+                <div class="wireframe-content">
+                    <div class="mobile-frame">
+                        <div class="mobile-notch"></div>
+                        <div class="mobile-screen">
+                            <!-- Header -->
+                            <div class="wf-header">
+                                <div class="wf-icon"></div>
+                                <div class="wf-logo">Checkout</div>
+                                <div class="wf-nav-icons">
+                                    <div style="width: 24px; height: 24px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">🔒</div>
+                                </div>
+                            </div>
+
+                            <div class="wf-section">
+                                <!-- Progress Steps -->
+                                <div class="wf-progress">
+                                    <div class="wf-step completed">
+                                        <div class="wf-step-circle">✓</div>
+                                        <span class="wf-step-label">Cart</span>
+                                    </div>
+                                    <div class="wf-step active">
+                                        <div class="wf-step-circle">2</div>
+                                        <span class="wf-step-label">Shipping</span>
+                                    </div>
+                                    <div class="wf-step">
+                                        <div class="wf-step-circle">3</div>
+                                        <span class="wf-step-label">Payment</span>
+                                    </div>
+                                </div>
+
+                                <!-- Shipping Form -->
+                                <h3 style="font-size: 1.125rem; margin: 30px 0 20px;">Shipping Information</h3>
+                                <input class="wf-input" placeholder="Full Name">
+                                <input class="wf-input" placeholder="Email Address">
+                                <input class="wf-input" placeholder="Phone Number">
+                                <input class="wf-input" placeholder="Address Line 1">
+                                <input class="wf-input" placeholder="Address Line 2 (Optional)">
+                                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px;">
+                                    <input class="wf-input" placeholder="City" style="margin: 0;">
+                                    <input class="wf-input" placeholder="State" style="margin: 0;">
+                                    <input class="wf-input" placeholder="ZIP" style="margin: 0;">
+                                </div>
+
+                                <!-- Shipping Method -->
+                                <h3 style="font-size: 1.125rem; margin: 30px 0 20px;">Shipping Method</h3>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <label style="display: flex; align-items: center; gap: 10px; padding: 15px; border: 2px solid var(--primary); border-radius: var(--radius); cursor: pointer; background: var(--gray-50);">
+                                        <input type="radio" name="shipping" checked>
+                                        <div style="flex: 1;">
+                                            <div style="font-weight: 500;">Standard Shipping</div>
+                                            <div style="font-size: 0.75rem; color: var(--gray-500);">5-7 business days</div>
+                                        </div>
+                                        <span style="font-weight: 600;">$10.00</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 10px; padding: 15px; border: 1px solid var(--gray-300); border-radius: var(--radius); cursor: pointer;">
+                                        <input type="radio" name="shipping">
+                                        <div style="flex: 1;">
+                                            <div style="font-weight: 500;">Express Shipping</div>
+                                            <div style="font-size: 0.75rem; color: var(--gray-500);">2-3 business days</div>
+                                        </div>
+                                        <span style="font-weight: 600;">$25.00</span>
+                                    </label>
+                                </div>
+
+                                <button class="wf-button" style="margin-top: 30px;">Continue to Payment</button>
+
+                                <!-- Security Badge -->
+                                <div style="text-align: center; margin: 20px 0;">
+                                    <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: var(--gray-100); border-radius: 20px;">
+                                        <span style="color: var(--success);">🔒</span>
+                                        <span style="font-size: 0.75rem; color: var(--gray-600);">Secure Checkout with SSL Encryption</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Preview -->
+        <div style="background: white; border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-lg); margin-top: 60px;">
+            <h2 style="font-size: 2rem; margin-bottom: 30px; text-align: center;">Design System Components</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Colors -->
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 20px;">Color Palette</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; background: var(--primary); border-radius: var(--radius);"></div>
+                            <div>
+                                <div style="font-weight: 600;">Primary</div>
+                                <div style="font-size: 0.875rem; color: var(--gray-500);">#3b82f6</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; background: var(--success); border-radius: var(--radius);"></div>
+                            <div>
+                                <div style="font-weight: 600;">Success</div>
+                                <div style="font-size: 0.875rem; color: var(--gray-500);">#10b981</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 40px; height: 40px; background: var(--danger); border-radius: var(--radius);"></div>
+                            <div>
+                                <div style="font-weight: 600;">Danger</div>
+                                <div style="font-size: 0.875rem; color: var(--gray-500);">#ef4444</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 20px;">Typography</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 700;">Heading 1</div>
+                            <div style="font-size: 0.75rem; color: var(--gray-500);">Inter 700, 2rem</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 600;">Heading 2</div>
+                            <div style="font-size: 0.75rem; color: var(--gray-500);">Inter 600, 1.5rem</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1rem;">Body Text</div>
+                            <div style="font-size: 0.75rem; color: var(--gray-500);">Inter 400, 1rem</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Components -->
+                <div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 20px;">Components</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <button class="wf-button" style="margin: 0;">Primary Button</button>
+                        <button class="wf-button secondary" style="margin: 0;">Secondary Button</button>
+                        <input class="wf-input" placeholder="Input Field" style="margin: 0;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
