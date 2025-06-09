@@ -1,18 +1,26 @@
 {
   "name": "modernmart-ecommerce",
   "version": "1.0.0",
-  "description": "Full-stack MERN e-commerce platform",
+  "description": "Full-stack MERN e-commerce platform - 16-week bootcamp project",
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npm run dev",
-    "client": "cd client && npm dev",
-    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+    "client": "cd client && npm run dev",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "test": "cd server && npm test && cd ../client && npm test",
+    "seed": "cd server && npm run seed",
+    "test-db": "cd server && node test-connection.js"
   },
-  "keywords": ["ecommerce", "mern", "react", "nodejs", "mongodb"],
+  "keywords": ["ecommerce", "mern", "react", "nodejs", "mongodb", "stripe", "jwt"],
   "author": "Javier Morales",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20.11.1",
+    "npm": ">=10.2.4"
   }
 }
